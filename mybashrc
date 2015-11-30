@@ -1,0 +1,63 @@
+#!/bin/sh
+
+export GIT_PROXY_COMMAND=/usr/local/bin/socks-gateway
+export PATH=$PATH:/opt/Xilinx/14.7/LabTools/LabTools/bin/lin64
+
+alias apeak='cd ~/Dev/apeak'
+alias atlaspeak=apeak
+alias atp=apeak
+export ATP=~/Dev/apeak
+
+export http_proxy="http://proxy.ir.intel.com:911"
+export https_proxy="http://proxy.ir.intel.com:911"
+export no_proxy="localhost,127.0.0.1,.intel.com"
+
+
+# this is to avoid problems with ctrl-s ctrl-q
+stty -ixon
+
+#export $(dbus-launch)
+
+export OLD_TERM=$TERM
+export TERM=xterm-256color
+
+
+export LANGUAGE=en_US.utf-8
+export LANG=en_US.utf-8
+export LC_ALL=en_US.utf-8
+#export LC_MESSAGES=POSIX
+
+export EDITOR="/usr/bin/vim"
+
+# get repo completion
+. ~/Dev/repo.bash_completion/repo.bash_completion
+
+
+
+mergepdf()
+{
+  dir=${1%/}
+  gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=$dir.pdf  -dPDFSETTINGS=/ebook -dBATCH $dir/*.pdf
+}
+
+function findpdf()
+{
+find . -iname '*.pdf' | while read filename
+do
+  echo -e "\033[34;1m// === PDF Document:\033[33;1m $filename\033[0m"
+  pdftotext -enc ASCII7 "$filename" - | grep --color=always -rni $1
+done
+}
+
+function gittree()
+{
+	git log --graph --all --pretty=format:'%Cred%h%Creset - %Cgreen(%cr)%Creset %s%C(yellow)%d%Creset' --abbrev-commit --date=relative
+}
+
+function findgrep()
+{
+ find . -name $2 -exec grep -nHr "$1" {} \; ;
+}
+
+alias glog="git log --oneline"
+
