@@ -1,5 +1,8 @@
 #!/bin/sh
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
+
 export GIT_PROXY_COMMAND=/usr/local/bin/socks-gateway
 export PATH=$PATH:/opt/Xilinx/14.7/LabTools/LabTools/bin/lin64
 
@@ -32,7 +35,8 @@ export EDITOR="/usr/bin/vim"
 # get repo completion
 . ~/Dev/repo.bash_completion/repo.bash_completion
 
-
+# color prompt green and bold cyan
+PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[00;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ '
 
 mergepdf()
 {
@@ -60,4 +64,13 @@ function findgrep()
 }
 
 alias glog="git log --oneline"
+
+
+function qvim_launch()
+{
+ params=$*
+ nvim-qt $params > /dev/null 2>&1
+}
+alias qvim="qvim_launch $@"
+
 

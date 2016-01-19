@@ -8,6 +8,9 @@ ln -s $DIR/gdbinit $HOME/.gdbinit
 ln -s $DIR/mybashrc $HOME/.mybashrc
 ln -s $DIR/vimrc $HOME/.vimrc
 
+mkdir -p $HOME/.config/nvim
+ln -s $DIR/init.vim $HOME/.config/nvim/
+
 echo
 echo "Install done"
 echo "if needed add . .mybashrc at the end of your .bashrc."

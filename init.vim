@@ -58,7 +58,9 @@ set wildmenu
 set ignorecase
 set smartcase
 
-
+set ruler
+set title
+set number
 
 " *****************************************************************************
 "
@@ -151,14 +153,14 @@ call vundle#rc(s:editor_root . '/bundle')
 
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+"Plugin 'gmarik/Vundle.vim'
 
 
 Plugin 'Tagbar'
 Plugin 'ctrlp.vim'
 Plugin 'rainbow_parentheses.vim'
 Plugin 'Syntastic'
-Plugin 'fugitive.vim'
+Plugin 'tpope/fugitive'
 "Plugin 'Tag-Signature-Balloons'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'rking/ag.vim'
@@ -248,4 +250,7 @@ hi ColorColumn guibg=#2d2d2d ctermbg=246
 
 " Ctrl-P root is current dir
 let g:ctrlp_working_path_mode = 'ra'
+
+" NVim's terminal: esc to leave the terminal
+:tnoremap <Esc><Esc> <C-\><C-n>
 
