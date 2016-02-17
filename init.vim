@@ -5,7 +5,8 @@
 
 syntax enable
 
-colorscheme desert
+"colorscheme desert
+colorscheme molokai
 
 "
 " Neovim specifics here:
@@ -160,7 +161,7 @@ Plugin 'Tagbar'
 Plugin 'ctrlp.vim'
 Plugin 'rainbow_parentheses.vim'
 Plugin 'Syntastic'
-Plugin 'tpope/fugitive'
+Plugin 'tpope/vim-fugitive'
 "Plugin 'Tag-Signature-Balloons'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'rking/ag.vim'

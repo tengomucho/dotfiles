@@ -11,6 +11,11 @@ ln -s $DIR/vimrc $HOME/.vimrc
 mkdir -p $HOME/.config/nvim
 ln -s $DIR/init.vim $HOME/.config/nvim/
 
+# install molokai colors
+mkdir -p $HOME/.config/nvim/colors
+cd $HOME/.config/nvim/colors
+wget https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
+
 echo
 echo "Install done"
 echo "if needed add . .mybashrc at the end of your .bashrc."

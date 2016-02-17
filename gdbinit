@@ -45,3 +45,4 @@ end
 define hook-quit
   shell rm /tmp/colorPipe
 end
+add-auto-load-safe-path /home/alvaromo/Dev/apeak/.gdbinit
