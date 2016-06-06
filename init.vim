@@ -6,6 +6,7 @@
 syntax enable
 
 "colorscheme desert
+let g:rehash256 = 1
 colorscheme molokai
 
 "
@@ -50,6 +51,8 @@ filetype plugin on
 set wildmode=longest,list,full
 set wildmenu
 
+" Load legacy menubar, you can load the menu with :emenu
+source $VIMRUNTIME/menu.vim
 
 " map autocompletion
 "inoremap <C-Space> <C-n>
@@ -173,6 +176,7 @@ Plugin 'autoload_cscope.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'Cofyc/vim-uncrustify'
 Plugin 'The-NERD-tree'
+Plugin 'jszakmeister/vim-togglecursor'
 
 if vundle_installed == 0
     echo "Installing Bundles, please ignore key map error messages"
@@ -251,6 +255,7 @@ hi ColorColumn guibg=#2d2d2d ctermbg=246
 
 " Ctrl-P root is current dir
 let g:ctrlp_working_path_mode = 'ra'
+noremap <C-P> <Esc>:Ctrlp .<CR>
 
 " NVim's terminal: esc to leave the terminal
 :tnoremap <Esc><Esc> <C-\><C-n>
