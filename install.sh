@@ -6,15 +6,14 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 ln -s $DIR/gdbinit $HOME/.gdbinit
 ln -s $DIR/mybashrc $HOME/.mybashrc
+
+# for neovim
+mkdir -p $HOME/.config/nvim
+ln -s $DIR/vimrc $HOME/.config/nvim/
+
+# for gvim/macvim
 ln -s $DIR/vimrc $HOME/.vimrc
 
-mkdir -p $HOME/.config/nvim
-ln -s $DIR/init.vim $HOME/.config/nvim/
-
-# install molokai colors
-mkdir -p $HOME/.config/nvim/colors
-cd $HOME/.config/nvim/colors
-wget https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
 
 echo
 echo "Install done"

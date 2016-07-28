@@ -1,8 +1,37 @@
-set nocompatible              " be iMproved, required
+" This script is a mix of different ones, so I cannot state I am the original
+" author. For example, I took many protions from here:
+" https://github.com/arusahni/dotfiles/blob/45c6655d46d1f672cc36f4e81c2a674484739ebc/vimrc
+
 
 syntax enable
 
-colorscheme desert
+"
+" Neovim specifics here:
+"
+
+" Neovim-qt Guifont command, to change the font
+command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>")
+" Set font on start
+let g:Guifont="Monospace:h8"
+
+" Compatibility
+if has("unix")
+  let s:uname = system("uname")
+  let g:python_host_prog='/usr/bin/python'
+  if s:uname == "Darwin\n"
+    let g:python_host_prog='/usr/local/bin/python' # found via `which python`
+  endif
+endif
+
+if has('nvim')
+    let s:editor_root=expand("~/.config/nvim")
+    " NVim's terminal: esc to leave the terminal
+    :tnoremap <Esc><Esc> <C-\><C-n>
+else
+    let s:editor_root=expand("~/.vim")
+endif
+
+" END NEOVIM SPECIFICS
 
 set autoindent
 set cindent
@@ -20,6 +49,9 @@ filetype plugin on
 set wildmode=longest,list,full
 set wildmenu
 
+" Load legacy menubar, you can load the menu with :emenu
+source $VIMRUNTIME/menu.vim
+
 " map autocompletion
 "inoremap <C-Space> <C-n>
 "inoremap <NUL> <C-n>
@@ -28,38 +60,9 @@ set wildmenu
 set ignorecase
 set smartcase
 
-" move tabs
-"function! ShiftTab(direction)
-"     let tab_number = tabpagenr()
-"     if a:direction == 0
-"         if tab_number == 1
-"             exe 'tabm' . tabpagenr('$')
-"         else
-"             exe 'tabm' . (tab_number - 2)
-"         endif
-"     else
-"         if tab_number == tabpagenr('$')
-"             exe 'tabm ' . 0
-"         else
-"         exe 'tabm ' . tab_number
-"         endif
-"     endif
-"     return ''
-"endfunction
-"
-"inoremap <silent> <C-S-PageUp>  <C-r>=ShiftTab(0)<CR>
-"inoremap <silent> <C-S-PageDown>  <C-r>=ShiftTab(1)<CR>
-"noremap <silent> <C-S-PageUp>  :call ShiftTab(0)<CR>
-"noremap <silent> <C-S-PageDown> :call ShiftTab(1)<CR>
-
-" switch tabs like firefox
-nnoremap <C-S-tab> :tabprevious<CR>
-nnoremap <C-tab>   :tabnext<CR>
-nnoremap <C-t>     :tabnew<CR>
-inoremap <C-S-tab> <Esc>:tabprevious<CR>i
-inoremap <C-tab>   <Esc>:tabnext<CR>i
-inoremap <C-t>     <Esc>:tabnew<CR>
-
+set ruler
+set title
+set number
 
 " *****************************************************************************
 "
@@ -77,6 +80,9 @@ set backspace=indent,eol,start whichwrap+=<,>,[,]
 
 " backspace in Visual mode deletes selection
 vnoremap <BS> d
+
+" Cross platform clipboard
+set clipboard^=unnamed,unnamedplus
 
 " CTRL-X and SHIFT-Del are Cut
 vnoremap <C-X> "+x
@@ -131,58 +137,79 @@ inoremap <C-Z> <C-O>u
 " CTRL-A is Select all
 noremap <C-A> gggH<C-O>G
 inoremap <C-A> <C-O>gg<C-O>gH<C-O>G
-cnoremap <C-A> <C-C>gggH<C-O>G
+cnoremap <C-A> <C-C>gggH<C-O>Ggvim
 onoremap <C-A> <C-C>gggH<C-O>G
 snoremap <C-A> <C-C>gggH<C-O>G
 xnoremap <C-A> <C-C>ggVG
 
 
-" *****************************************************************************
-" VUNDLE STUFF
-" *****************************************************************************
+" Setup Molokai color theme
+let molokai_installed=1
+let molokai_theme=s:editor_root . '/colors/molokai.vim'
+if !filereadable(molokai_theme)
+    echo "Installing Molokai.."
+    echo ""
+    silent execute "!git clone https://github.com/tomasr/molokai.git " . s:editor_root . "/molokai"
+    silent call mkdir(s:editor_root . '/colors', "p")
+    silent execute "!cp " . s:editor_root . "/molokai/colors/molokai.vim " . s:editor_root . "/colors/"
+    silent execute
+    let molokai_installed=0
+endif
 
-"set nocompatible              " be iMproved, required
-filetype off                  " required
+"colorscheme desert
+let g:rehash256 = 1
+colorscheme molokai
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+
+
+" Setting up Vundle - the vim plugin bundler
+let vundle_installed=1
+let vundle_readme=s:editor_root . '/bundle/vundle/README.md'
+if !filereadable(vundle_readme)
+    echo "Installing Vundle.."
+    echo ""
+    " silent execute "! mkdir -p ~/." . s:editor_path_name . "/bundle"
+    silent call mkdir(s:editor_root . '/bundle', "p")
+    silent execute "!git clone https://github.com/gmarik/vundle " . s:editor_root . "/bundle/vundle"
+    let vundle_installed=0
+endif
+let &rtp = &rtp . ',' . s:editor_root . '/bundle/vundle/'
+call vundle#rc(s:editor_root . '/bundle')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+"Plugin 'gmarik/Vundle.vim'
 
-
-Plugin 'The-NERD-tree'
-
-"Plugin 'Valloric/YouCompleteMe'
 
 Plugin 'Tagbar'
 Plugin 'ctrlp.vim'
 Plugin 'rainbow_parentheses.vim'
 Plugin 'Syntastic'
-Plugin 'fugitive.vim'
-Plugin 'Tag-Signature-Balloons'
+Plugin 'tpope/vim-fugitive'
+"Plugin 'Tag-Signature-Balloons'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'rking/ag.vim'
 Plugin 'bufexplorer.zip'
 Plugin 'autoload_cscope.vim'
-Plugin 'Shougo/vimproc.vim' "vimproc requires compilation!
-Plugin 'kana/vim-operator-user'
-Plugin 'rhysd/vim-clang-format'
+"Plugin 'Shougo/vimproc.vim' "vimproc requires compilation!
+"Plugin 'kana/vim-operator-user'
+"Plugin 'rhysd/vim-clang-format'
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
 Plugin 'Cofyc/vim-uncrustify'
+Plugin 'The-NERD-tree'
+Plugin 'jszakmeister/vim-togglecursor'
+Plugin 'rust-lang/rust.vim'
+
+if vundle_installed == 0
+    echo "Installing Bundles, please ignore key map error messages"
+    echo ""
+    :BundleInstall
+endif
+" Setting up Vundle - the vim plugin bundler end
+
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 syntax on
-
-
-" *****************************************************
-" This autocmd highlights the active word
-"autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
 set smartindent
 set tabstop=8
@@ -198,9 +225,9 @@ function! IndentToggle()
     set noexpandtab
   else
     " Local settings
-    set tabstop=4
-    set shiftwidth=4
-    set softtabstop=4
+    set tabstop=2
+    set shiftwidth=2
+    set softtabstop=2
     set expandtab
   endif
 endfunction
@@ -221,74 +248,6 @@ endfunction
 :imap <F6> <ESC>:TagbarToggle<CR>
 :map <F6> :TagbarToggle<CR>
 
-
-if has("gui_running")
-  if has("gui_gtk2")
-    set guifont=Monospace\ 8
-  endif
-else
-  set mouse=a
-  colorscheme darkblue
-  " allow selections in tty
-  set ttymouse=xterm2
-  set ttyfast
-  " map autocompletion on remote xterm
-  "inoremap <NUL> <C-n>
-
-endif
-
-
-"===============================================================
-" Clang completion
-"
-" Everything commented, for now I won't enable it
-"
-""let g:clang_complete_copen = 1
-""let g:clang_use_library = 1 deprecated
-""let g:clang_library_path = '/opt/llvm-3.4/lib'
-"let g:clang_library_path = '/opt/llvm-3.4.1/lib'
-"let g:clang_close_preview = 1
-""let g:clang_snippets = 1
-""let g:clang_snippets_engine = 'snipmate'
-"let g:clang_periodic_quickfix = 0
-"map <buffer> <silent> <F5> :call g:ClangUpdateQuickFix()<CR>
-"" This shall disappear once cindex.py can check if the CompilationDB feature
-"" is available :
-"let g:clang_auto_user_options = 'path, compile_commands.json'
-""let g:clang_user_options = '-Wall'
-"let g:clang_complete_copen = 1
-"let g:clang_complete_macros = 1
-"let g:clang_complete_patterns = 1
-"" insert text automatically when there is only one posiibility
-"set completeopt=menu,longest
-"
-"function! ClangPeriodicToggle()
-"   if g:clang_periodic_quickfix == 0
-"      let g:clang_periodic_quickfix = 1
-"   else
-"      let g:clang_periodic_quickfix = 0
-"   endif
-"   echo "Clang Periodic Quickfix " g:clang_periodic_quickfix
-"endfunction
-":imap <F8> <ESC>:call ClangPeriodicToggle()<CR>
-":map <F8> :call ClangPeriodicToggle()<CR>
-
-
-" Clang format
-" you need to install clang-format binary to have this working
-map <F9>  :ClangFormat<CR>
-imap <F9> <ESC>:ClangFormat<CR>i
-let g:clang_format#command="clang-format-3.5"
-" A style that should be similar to linux kernel one
-"let g:clang_format#style_options = {
-"            \ "BasedOnStyle" : "LLVM",
-"            \ "IndentWidth" : "8",
-"            \ "UseTab" : "Always",
-"            \ "BreakBeforeBraces" : "Linux",
-"            \ "AllowShortIfStatementsOnASingleLine" : "false",
-"            \ "IndentCaseLabels" : "false"
-"\}
-
 " ctrl+backspace to delete whitespace
 imap <c-backspace> <c-w>
 
@@ -297,9 +256,6 @@ set hlsearch
 
 " wrap around when searching
 :set wrapscan
-
-" YCM settings
-let g:ycm_global_ycm_extra_conf = "~/.vim/ycm.py"
 
 " remove trailing whitespaces on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -320,6 +276,24 @@ hi ColorColumn guibg=#2d2d2d ctermbg=246
 
 " Ctrl-P root is current dir
 let g:ctrlp_working_path_mode = 'ra'
+noremap <C-P> <Esc>:Ctrlp .<CR>
 
+" On GVim, set font size to 9
+if has("gui_gtk2")
+  set guifont=Monospace\ 9
+endif
 
+" Centralize swp files
+let directory = s:editor_root . '/swap/'
+if exists("*mkdir")
+    if !isdirectory(directory)
+        call mkdir(directory)
+    endif
+endif
+if !isdirectory(directory)
+    echo "Warning: Unable to create backup directory: " . directory
+    echo "Try: mkdir -p " . directory
+else
+    exec "set directory=" . directory
+endif
 
