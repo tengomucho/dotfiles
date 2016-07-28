@@ -199,6 +199,7 @@ Plugin 'Cofyc/vim-uncrustify'
 Plugin 'The-NERD-tree'
 Plugin 'jszakmeister/vim-togglecursor'
 Plugin 'rust-lang/rust.vim'
+Plugin 'digitaltoad/vim-pug'
 
 if vundle_installed == 0
     echo "Installing Bundles, please ignore key map error messages"
@@ -297,4 +298,8 @@ if !isdirectory(directory)
 else
     exec "set directory=" . directory
 endif
+
+" jade has been renamed pug
+autocmd BufNewFile,BufRead *.jade set syntax=pug
+autocmd BufNewFile,BufRead *.pug set syntax=pug
 
