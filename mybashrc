@@ -4,7 +4,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 
 export GIT_PROXY_COMMAND=/usr/local/bin/socks-gateway
-export PATH=$PATH:/opt/Xilinx/14.7/LabTools/LabTools/bin/lin64
+# Add cargo/rust binaries
+export PATH=$PATH:~/.cargo/bin
 
 alias apeak='cd ~/Dev/apeak'
 alias atp=apeak
