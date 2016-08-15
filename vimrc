@@ -19,7 +19,7 @@ if has("unix")
   let s:uname = system("uname")
   let g:python_host_prog='/usr/bin/python'
   if s:uname == "Darwin\n"
-    let g:python_host_prog='/usr/local/bin/python' # found via `which python`
+    let g:python_host_prog='/usr/local/bin/python' " found via `which python`
   endif
 endif
 
@@ -149,8 +149,9 @@ let molokai_theme=s:editor_root . '/colors/molokai.vim'
 if !filereadable(molokai_theme)
     echo "Installing Molokai.."
     echo ""
+    silent execute "!rm -rf " . s:editor_root . "/molokai"
     silent execute "!git clone https://github.com/tomasr/molokai.git " . s:editor_root . "/molokai"
-    silent call mkdir(s:editor_root . '/colors', "p")
+    silent execute "!mkdir -p " . s:editor_root . "/colors/"
     silent execute "!cp " . s:editor_root . "/molokai/colors/molokai.vim " . s:editor_root . "/colors/"
     silent execute
     let molokai_installed=0
