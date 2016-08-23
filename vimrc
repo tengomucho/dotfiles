@@ -10,7 +10,7 @@ syntax enable
 "
 
 " Neovim-qt Guifont command, to change the font
-command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>")
+command! -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>")
 " Set font on start
 let g:Guifont="Monospace:h8"
 
