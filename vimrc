@@ -200,6 +200,7 @@ Plugin 'The-NERD-tree'
 Plugin 'jszakmeister/vim-togglecursor'
 Plugin 'rust-lang/rust.vim'
 Plugin 'digitaltoad/vim-pug'
+Plugin 'wavded/vim-stylus'
 
 if vundle_installed == 0
     echo "Installing Bundles, please ignore key map error messages"
@@ -303,3 +304,5 @@ endif
 autocmd BufNewFile,BufRead *.jade set syntax=pug
 autocmd BufNewFile,BufRead *.pug set syntax=pug
 
+" Stylus syntax
+autocmd BufNewFile,BufRead *.styl set syntax=stylus
