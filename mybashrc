@@ -10,10 +10,6 @@ export PATH=$PATH:~/.cargo/bin
 alias apeak='cd ~/Dev/apeak'
 alias atp=apeak
 
-export http_proxy="http://proxy.ir.intel.com:911"
-export https_proxy="http://proxy.ir.intel.com:911"
-export no_proxy="localhost,127.0.0.1,.intel.com"
-
 
 # this is to avoid problems with ctrl-s ctrl-q
 stty -ixon
@@ -32,7 +28,7 @@ export LC_ALL=en_US.utf-8
 export EDITOR="/usr/bin/vim"
 
 # get repo completion
-. ~/Dev/repo.bash_completion/repo.bash_completion
+#. ~/Dev/repo.bash_completion/repo.bash_completion
 
 # color prompt green and bold cyan
 PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[00;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ '

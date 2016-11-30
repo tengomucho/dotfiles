@@ -12,7 +12,7 @@ syntax enable
 " Neovim-qt Guifont command, to change the font
 command! -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>")
 " Set font on start
-let g:Guifont="Monospace:h8"
+let g:Guifont="Monospace:h11"
 
 " Compatibility
 if has("unix")
@@ -281,9 +281,9 @@ hi ColorColumn guibg=#2d2d2d ctermbg=246
 let g:ctrlp_working_path_mode = 'ra'
 noremap <C-P> <Esc>:Ctrlp .<CR>
 
-" On GVim, set font size to 9
+" On GVim, set font size to 11
 if has("gui_gtk2")
-  set guifont=Monospace\ 9
+  set guifont=Monospace\ 11
 endif
 
 " Centralize swp files
