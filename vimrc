@@ -306,3 +306,6 @@ autocmd BufNewFile,BufRead *.pug set syntax=pug
 
 " Stylus syntax
 autocmd BufNewFile,BufRead *.styl set syntax=stylus
+
+" Sometimes the mouse is not enabled in terminal...
+:set mouse=a
