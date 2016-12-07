@@ -68,5 +68,3 @@ function qvim_launch()
 }
 alias qvim="qvim_launch $@"
 
-export GIT_AUTHOR_EMAIL='alvaro.moran@intel.com'
-
