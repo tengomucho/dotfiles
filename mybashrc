@@ -3,7 +3,6 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 
 
-export GIT_PROXY_COMMAND=/usr/local/bin/socks-gateway
 # Add cargo/rust binaries
 export PATH=$PATH:~/.cargo/bin
 
