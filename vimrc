@@ -269,6 +269,8 @@ let g:bufExplorerSortBy='name'
 " Markdown: disable folding
 let g:vim_markdown_folding_disabled=1
 
+" Uncrustify
+let g:uncrustify_cfg_file_path = "~/.uncrustify.cfg"  " path to uncrustify configuration file
 autocmd FileType c noremap <buffer> <c-f> :call Uncrustify('c')<CR>
 autocmd FileType c vnoremap <buffer> <c-f> :call RangeUncrustify('c')<CR>
 

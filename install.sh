@@ -14,6 +14,7 @@ ln -s $DIR/vimrc $HOME/.config/nvim/
 # for gvim/macvim
 ln -s $DIR/vimrc $HOME/.vimrc
 
+ln -s $DIR/uncrustify.cfg ~/.uncrustify.cfg
 
 echo
 echo "Install done"
