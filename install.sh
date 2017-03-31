@@ -9,7 +9,7 @@ ln -s $DIR/mybashrc $HOME/.mybashrc
 
 # for neovim
 mkdir -p $HOME/.config/nvim
-ln -s $DIR/vimrc $HOME/.config/nvim/
+ln -s $DIR/vimrc $HOME/.config/nvim/init.vim
 
 # for gvim/macvim
 ln -s $DIR/vimrc $HOME/.vimrc
