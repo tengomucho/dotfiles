@@ -67,3 +67,4 @@ function qvim_launch()
 }
 alias qvim="qvim_launch $@"
 
+export KWIN_TRIPLE_BUFFER=1
