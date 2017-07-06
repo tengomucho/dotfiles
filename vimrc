@@ -175,7 +175,8 @@ if !filereadable(vundle_readme)
     let vundle_installed=0
 endif
 let &rtp = &rtp . ',' . s:editor_root . '/bundle/vundle/'
-call vundle#rc(s:editor_root . '/bundle')
+"call vundle#rc(s:editor_root . '/bundle')
+call vundle#begin(s:editor_root . '/bundle')
 
 " let Vundle manage Vundle, required
 "Plugin 'gmarik/Vundle.vim'
@@ -201,6 +202,7 @@ Plugin 'jszakmeister/vim-togglecursor'
 Plugin 'rust-lang/rust.vim'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'wavded/vim-stylus'
+Plugin 'Valloric/YouCompleteMe'
 
 if vundle_installed == 0
     echo "Installing Bundles, please ignore key map error messages"
@@ -228,9 +230,9 @@ function! IndentToggle()
     set noexpandtab
   else
     " Local settings
-    set tabstop=2
-    set shiftwidth=2
-    set softtabstop=2
+    set tabstop=4
+    set shiftwidth=4
+    set softtabstop=4
     set expandtab
   endif
 endfunction
@@ -285,7 +287,7 @@ noremap <C-P> <Esc>:Ctrlp .<CR>
 
 " On GVim, set font size to 10
 if has("gui_gtk2")
-  set guifont=Monospace\ 10
+  set guifont=Noto\ Mono\ 10
 endif
 
 " Centralize swp files
