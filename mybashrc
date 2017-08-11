@@ -5,6 +5,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 # Add cargo/rust binaries
 export PATH=$PATH:~/.cargo/bin
+# Check https://github.com/rust-lang-nursery/rls
+export RUST_SRC_PATH="/home/amoran/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
 
 alias apeak='cd ~/Dev/apeak'
 alias atp=apeak
@@ -68,3 +70,5 @@ function qvim_launch()
 alias qvim="qvim_launch $@"
 
 export KWIN_TRIPLE_BUFFER=1
+
+
