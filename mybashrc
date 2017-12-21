@@ -8,9 +8,17 @@ export PATH=$PATH:~/.cargo/bin
 # Check https://github.com/rust-lang-nursery/rls
 export RUST_SRC_PATH="/home/amoran/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
 
-alias apeak='cd ~/Dev/apeak'
-alias atp=apeak
+# NPM packages in homedir
+export NPM_PACKAGES="$HOME/.npm-packages"
 
+# Tell our environment about user-installed node tools
+export PATH="$NPM_PACKAGES/bin:$PATH"
+# Unset manpath so we can inherit from /etc/manpath via the `manpath` command
+unset MANPATH  # delete if you already modified MANPATH elsewhere in your conf
+export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+
+# Tell Node about these packages
+export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 
 # this is to avoid problems with ctrl-s ctrl-q
 stty -ixon

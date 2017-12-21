@@ -16,6 +16,9 @@ ln -s $DIR/vimrc $HOME/.vimrc
 
 ln -s $DIR/uncrustify.cfg ~/.uncrustify.cfg
 
+# for npm
+echo 'prefix = ${NPM_PACKAGES}' >> ~/.npmrc
+
 echo
 echo "Install done"
 echo "if needed add . .mybashrc at the end of your .bashrc."
