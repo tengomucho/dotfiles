@@ -23,10 +23,12 @@ if has("unix")
   endif
 endif
 
+if has('nvim') || (v:version >= 800)
+    " NVim's (and Vim8) terminal: esc to leave the terminal
+    :tnoremap <Esc><Esc> <C-\><C-n>
+endif
 if has('nvim')
     let s:editor_root=expand("~/.config/nvim")
-    " NVim's terminal: esc to leave the terminal
-    :tnoremap <Esc><Esc> <C-\><C-n>
 else
     let s:editor_root=expand("~/.vim")
 endif
@@ -276,10 +278,24 @@ let g:uncrustify_cfg_file_path = "~/.uncrustify.cfg"  " path to uncrustify confi
 autocmd FileType c noremap <buffer> <c-f> :call Uncrustify('c')<CR>
 autocmd FileType c vnoremap <buffer> <c-f> :call RangeUncrustify('c')<CR>
 
-" Mark 80 text witdth
-set textwidth=80
+" Mark 80 text width and switch with F8
 set colorcolumn=+1
 hi ColorColumn guibg=#2d2d2d ctermbg=246
+let s:limit80=1
+function! TextWidthToggle()
+    if s:limit80 == 1
+        echo "Disable limit 80"
+	" Just set it big big big
+	set textwidth=32000
+        let s:limit80 = 0
+    else
+        echo "Enable limit 80"
+	set textwidth=80
+        let s:limit80 = 1
+    endif
+endfunction
+inoremap <F8> <Esc>:call TextWidthToggle()<CR>
+noremap <F8> :call TextWidthToggle()<CR>
 
 " Ctrl-P root is current dir
 let g:ctrlp_working_path_mode = 'ra'
@@ -313,3 +329,10 @@ autocmd BufNewFile,BufRead *.styl set syntax=stylus
 
 " Sometimes the mouse is not enabled in terminal...
 :set mouse=a
+" Fully powered mouse support
+if has("mouse_sgr")
+	set ttymouse=sgr
+else
+	set ttymouse=xterm2
+endif
+
