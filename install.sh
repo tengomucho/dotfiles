@@ -16,6 +16,9 @@ ln -s $DIR/vimrc $HOME/.vimrc
 
 ln -s $DIR/uncrustify.cfg ~/.uncrustify.cfg
 
+# tmux
+ln -s $DIR/tmux.conf ~/.tmux.conf
+
 # for npm
 echo 'prefix = ${NPM_PACKAGES}' >> ~/.npmrc
 
