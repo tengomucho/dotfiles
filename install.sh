@@ -19,6 +19,9 @@ ln -s $DIR/uncrustify.cfg ~/.uncrustify.cfg
 # tmux
 ln -s $DIR/tmux.conf ~/.tmux.conf
 
+# for YouCompleteMe (Vim plugin)
+curl https://raw.githubusercontent.com/Valloric/ycmd/master/cpp/ycm/.ycm_extra_conf.py > ~/.ycm_extra_conf.py
+
 # for npm
 echo 'prefix = ${NPM_PACKAGES}' >> ~/.npmrc
 

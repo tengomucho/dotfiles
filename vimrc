@@ -213,6 +213,9 @@ if vundle_installed == 0
 endif
 " Setting up Vundle - the vim plugin bundler end
 
+" YouCompleteMe settings
+let g:ycm_confirm_extra_conf=0
+
 
 call vundle#end()            " required
 filetype plugin indent on    " required
