@@ -43,10 +43,6 @@ set formatoptions+=r
 
 filetype plugin on
 
-" ctrl+a select all
-" map <C-a> ggVG
-" Commented because of mswin remap is better
-
 " To have tab to complete well in command mode
 set wildmode=longest,list,full
 set wildmenu
@@ -145,81 +141,55 @@ snoremap <C-A> <C-C>gggH<C-O>G
 xnoremap <C-A> <C-C>ggVG
 
 
-" Setup Molokai color theme
-let molokai_installed=1
-let molokai_theme=s:editor_root . '/colors/molokai.vim'
-if !filereadable(molokai_theme)
-    echo "Installing Molokai.."
-    echo ""
-    silent execute "!rm -rf " . s:editor_root . "/molokai"
-    silent execute "!git clone https://github.com/tomasr/molokai.git " . s:editor_root . "/molokai"
-    silent execute "!mkdir -p " . s:editor_root . "/colors/"
-    silent execute "!cp " . s:editor_root . "/molokai/colors/molokai.vim " . s:editor_root . "/colors/"
-    silent execute
-    let molokai_installed=0
+" ----------------------------------------------------------------------------
+"   Plug
+" ----------------------------------------------------------------------------
+
+" Install vim-plug if we don't already have it
+if empty(glob(s:editor_root . '/autoload/plug.vim'))
+  silent execute "!curl -fLo " . s:editor_root . "/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
+call plug#begin(s:editor_root . '/plugged')
+
+" Coloscheme
+Plug 'captbaritone/molokai'
+Plug 'majutsushi/tagbar'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-fugitive'
+Plug 'MattesGroeger/vim-bookmarks'
+Plug 'rking/ag.vim'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'vim-scripts/autoload_cscope.vim'
+Plug 'godlygeek/tabular'
+Plug 'Cofyc/vim-uncrustify'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'jszakmeister/vim-togglecursor'
+Plug 'rust-lang/rust.vim'
+Plug 'digitaltoad/vim-pug'
+Plug 'wavded/vim-stylus'
+
+let g:ycm_install_options = ''
+if executable("clang")
+	let g:ycm_install_options .= ' --clang'
+end
+if executable("rustc")
+	let g:ycm_install_options .= ' --rust-completer'
+end
+let g:ycm_install_options = './install.py'. g:ycm_install_options
+Plug 'Valloric/YouCompleteMe', { 'do': g:ycm_install_options }
+
+filetype plugin indent on                   " required!
+call plug#end()
+
+syntax on
 
 "colorscheme desert
 let g:rehash256 = 1
 colorscheme molokai
-
-
-
-" Setting up Vundle - the vim plugin bundler
-let vundle_installed=1
-let vundle_readme=s:editor_root . '/bundle/vundle/README.md'
-if !filereadable(vundle_readme)
-    echo "Installing Vundle.."
-    echo ""
-    " silent execute "! mkdir -p ~/." . s:editor_path_name . "/bundle"
-    silent call mkdir(s:editor_root . '/bundle', "p")
-    silent execute "!git clone https://github.com/gmarik/vundle " . s:editor_root . "/bundle/vundle"
-    let vundle_installed=0
-endif
-let &rtp = &rtp . ',' . s:editor_root . '/bundle/vundle/'
-"call vundle#rc(s:editor_root . '/bundle')
-call vundle#begin(s:editor_root . '/bundle')
-
-" let Vundle manage Vundle, required
-"Plugin 'gmarik/Vundle.vim'
-
-
-Plugin 'Tagbar'
-Plugin 'ctrlp.vim'
-Plugin 'rainbow_parentheses.vim'
-Plugin 'Syntastic'
-Plugin 'tpope/vim-fugitive'
-"Plugin 'Tag-Signature-Balloons'
-Plugin 'MattesGroeger/vim-bookmarks'
-Plugin 'rking/ag.vim'
-Plugin 'bufexplorer.zip'
-Plugin 'autoload_cscope.vim'
-"Plugin 'Shougo/vimproc.vim' "vimproc requires compilation!
-"Plugin 'kana/vim-operator-user'
-"Plugin 'rhysd/vim-clang-format'
-Plugin 'godlygeek/tabular'
-Plugin 'Cofyc/vim-uncrustify'
-Plugin 'The-NERD-tree'
-Plugin 'jszakmeister/vim-togglecursor'
-Plugin 'rust-lang/rust.vim'
-Plugin 'digitaltoad/vim-pug'
-Plugin 'wavded/vim-stylus'
-Plugin 'Valloric/YouCompleteMe'
-
-if vundle_installed == 0
-    echo "Installing Bundles, please ignore key map error messages"
-    echo ""
-    :BundleInstall
-endif
-" Setting up Vundle - the vim plugin bundler end
-
-" YouCompleteMe settings
-let g:ycm_confirm_extra_conf=0
-
-
-call vundle#end()            " required
-filetype plugin indent on    " required
-syntax on
 
 set smartindent
 set tabstop=8
