@@ -155,6 +155,7 @@ call plug#begin(s:editor_root . '/plugged')
 
 " Coloscheme
 Plug 'captbaritone/molokai'
+
 Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kien/rainbow_parentheses.vim'
@@ -166,12 +167,22 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'vim-scripts/autoload_cscope.vim'
 Plug 'godlygeek/tabular'
 Plug 'Cofyc/vim-uncrustify'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 Plug 'jszakmeister/vim-togglecursor'
-Plug 'rust-lang/rust.vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'wavded/vim-stylus'
+Plug 'pboettch/vim-cmake-syntax'
+Plug 'Valloric/MatchTagAlways'
+Plug 'kergoth/vim-bitbake'
 
+" Rust stuff
+Plug 'rust-lang/rust.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
+" Ycm stuff
 let g:ycm_install_options = ''
 if executable("clang")
 	let g:ycm_install_options .= ' --clang'
@@ -308,4 +319,16 @@ if has("mouse_sgr")
 else
 	set ttymouse=xterm2
 endif
+
+set statusline=%t
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+"Syntastic conf (from https://github.com/vim-syntastic/syntastic#3-recommended-settings)
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 
