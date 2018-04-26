@@ -162,7 +162,7 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'MattesGroeger/vim-bookmarks'
-Plug 'rking/ag.vim'
+Plug 'jremmen/vim-ripgrep'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'vim-scripts/autoload_cscope.vim'
 Plug 'godlygeek/tabular'
@@ -174,6 +174,8 @@ Plug 'wavded/vim-stylus'
 Plug 'pboettch/vim-cmake-syntax'
 Plug 'Valloric/MatchTagAlways'
 Plug 'kergoth/vim-bitbake'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Rust stuff
 Plug 'rust-lang/rust.vim'
@@ -203,8 +205,9 @@ let g:rehash256 = 1
 colorscheme molokai
 
 set smartindent
-set tabstop=8
-set shiftwidth=8
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set noexpandtab
 " allow toggling between local and default mode
 function! IndentToggle()
@@ -287,7 +290,7 @@ noremap <C-P> <Esc>:Ctrlp .<CR>
 
 " On GVim, set font size to 10
 if has("gui_gtk2")
-  set guifont=Noto\ Mono\ 10
+	set guifont=Ubuntu\ Mono\ 11
 endif
 
 " Centralize swp files
@@ -320,15 +323,16 @@ else
 	set ttymouse=xterm2
 endif
 
-set statusline=%t
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 "Syntastic conf (from https://github.com/vim-syntastic/syntastic#3-recommended-settings)
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+"Vim airline theme
+let g:airline_theme="bubblegum"
+
+"Highlight as you type
+set incsearch
 
 
