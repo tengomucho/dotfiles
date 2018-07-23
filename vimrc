@@ -335,4 +335,5 @@ let g:airline_theme="bubblegum"
 "Highlight as you type
 set incsearch
 
-
+"YCM settings (See README.md)
+let g:ycm_confirm_extra_conf = 0
