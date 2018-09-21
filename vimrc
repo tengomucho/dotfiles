@@ -208,7 +208,7 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set noexpandtab
+set expandtab
 " allow toggling between local and default mode
 function! IndentToggle()
   if &expandtab
@@ -217,12 +217,14 @@ function! IndentToggle()
     set shiftwidth=8
     set softtabstop=0
     set noexpandtab
+    echo 'Indent to 8'
   else
     " Local settings
     set tabstop=4
     set shiftwidth=4
     set softtabstop=4
     set expandtab
+    echo 'Indent to 4'
   endif
 endfunction
 :nmap <F12> mz:execute IndentToggle()<CR>'z
