@@ -19,6 +19,10 @@ ln -s $DIR/uncrustify.cfg ~/.uncrustify.cfg
 # tmux
 ln -s $DIR/tmux.conf ~/.tmux.conf
 
+# global gitignore
+ln -s $DIR/gitignore ~/.gitignore
+git config --global core.excludesfile '~/.gitignore'
+
 # for YouCompleteMe (Vim plugin)
 curl https://raw.githubusercontent.com/Valloric/ycmd/master/cpp/ycm/.ycm_extra_conf.py > ~/.ycm_extra_conf.py
 
