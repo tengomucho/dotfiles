@@ -81,3 +81,7 @@ export KWIN_TRIPLE_BUFFER=1
 
 #cleanup for docker containers
 alias docker-cleanup="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm"
+
+# Add snaps
+export PATH=$PATH:/snap/bin
+
