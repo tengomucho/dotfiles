@@ -85,3 +85,6 @@ alias docker-cleanup="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker 
 # Add snaps
 export PATH=$PATH:/snap/bin
 
+# Add custom personal path
+export PATH=~/.bin:$PATH
+

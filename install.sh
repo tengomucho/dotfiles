@@ -29,7 +29,17 @@ curl https://raw.githubusercontent.com/Valloric/ycmd/master/cpp/ycm/.ycm_extra_c
 # for npm
 echo 'prefix = ${NPM_PACKAGES}' >> ~/.npmrc
 
+# custom path
+mkdir -p ~/.bin
+
+# ripgrep shortcut
+ln -s $DIR/bin/rg ~/.bin
+
+# python3 by default
+ln -s /usr/bin/python3 ~/.bin/python
+
 echo
 echo "Install done"
 echo "if needed add . .mybashrc at the end of your .bashrc."
+
 
