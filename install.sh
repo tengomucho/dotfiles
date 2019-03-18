@@ -38,6 +38,9 @@ ln -s $DIR/bin/rg ~/.bin
 # python3 by default
 ln -s /usr/bin/python3 ~/.bin/python
 
+# vscode
+ln -sf $DIR/settings.json ~/.config/Code/User/settings.json
+
 echo
 echo "Install done"
 echo "if needed add . .mybashrc at the end of your .bashrc."

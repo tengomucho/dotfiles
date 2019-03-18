@@ -1,0 +1,12 @@
+{
+    "editor.fontSize": 13,
+    "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontLigatures": true,
+    "editor.minimap.enabled": false,
+    "C_Cpp.clang_format_fallbackStyle": "Google",
+    "editor.tabSize": 2,
+    "workbench.iconTheme": "vscode-icons",
+    "[python]": {
+        "editor.tabSize": 4
+    }
+}
