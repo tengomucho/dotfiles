@@ -3,6 +3,9 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 
 
+# Add .local/bin path
+export PATH=$PATH:~/.local/bin
+
 # Add cargo/rust binaries
 export PATH=$PATH:~/.cargo/bin
 # Check https://github.com/rust-lang-nursery/rls

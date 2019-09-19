@@ -31,6 +31,7 @@ echo 'prefix = ${NPM_PACKAGES}' >> ~/.npmrc
 
 # custom path
 mkdir -p ~/.bin
+mkdir -p ~/.local/bin
 
 # ripgrep shortcut
 ln -s $DIR/bin/rg ~/.bin
@@ -40,6 +41,11 @@ ln -s /usr/bin/python3 ~/.bin/python
 
 # vscode
 ln -sf $DIR/settings.json ~/.config/Code/User/settings.json
+
+echo
+echo "Consider installing node.js by typing:"
+echo "curl -sL install-node.now.sh/lts | bash"
+
 
 echo
 echo "Install done"

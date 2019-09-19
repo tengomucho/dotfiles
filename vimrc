@@ -146,8 +146,9 @@ xnoremap <C-A> <C-C>ggVG
 " ----------------------------------------------------------------------------
 
 " Install vim-plug if we don't already have it
-if empty(glob(s:editor_root . '/autoload/plug.vim'))
-  silent execute "!curl -fLo " . s:editor_root . "/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
@@ -155,7 +156,6 @@ call plug#begin(s:editor_root . '/plugged')
 
 " Coloscheme
 Plug 'captbaritone/molokai'
-
 Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kien/rainbow_parentheses.vim'
@@ -179,30 +179,29 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Rust stuff
 Plug 'rust-lang/rust.vim'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+"Plug 'prabirshrestha/async.vim'
+"Plug 'prabirshrestha/vim-lsp'
+"Plug 'prabirshrestha/asyncomplete.vim'
+"Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" I commented the above ones because the intellisense one seems to work better
 
-" Ycm stuff
-let g:ycm_install_options = ''
-if executable("clang")
-	let g:ycm_install_options .= ' --clang'
-end
-if executable("rustc")
-	let g:ycm_install_options .= ' --rust-completer'
-end
-let g:ycm_install_options = './install.py'. g:ycm_install_options
-Plug 'Valloric/YouCompleteMe', { 'do': g:ycm_install_options }
+" intellisense for vim
+" It requires node, to install it do:
+" curl -sL install-node.now.sh/lts | bash
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 
 filetype plugin indent on                   " required!
 call plug#end()
 
-syntax on
 
 "colorscheme desert
 let g:rehash256 = 1
 colorscheme molokai
+
+
+
+syntax on
 
 set smartindent
 set tabstop=2
