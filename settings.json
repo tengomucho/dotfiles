@@ -5,8 +5,22 @@
     "editor.minimap.enabled": false,
     "C_Cpp.clang_format_fallbackStyle": "Google",
     "editor.tabSize": 2,
-    "workbench.iconTheme": "vscode-icons",
     "[python]": {
         "editor.tabSize": 4
-    }
+    },
+    "terminal.integrated.rendererType": "dom",
+    "C_Cpp.updateChannel": "Insiders",
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true
+      },
+    "window.zoomLevel": 0,
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintUseMinimalCheckers": true,
+    "python.linting.pep8Enabled": true,
+    "terminal.integrated.fontSize": 13,
+    "window.menuBarVisibility": "visible",
+    "window.titleBarStyle": "custom",
+    "vsicons.dontShowNewVersionMessage": true
 }
