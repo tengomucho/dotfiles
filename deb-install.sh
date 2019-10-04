@@ -8,5 +8,5 @@ sudo apt-get install vim-gtk cscope exuberant-ctags \
 	clang curl libpython-dev
 
 # Maybe these too
-sudo snap install ripgrep --classic
+sudo snap install ripgrep ccls --classic
 

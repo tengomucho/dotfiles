@@ -14,6 +14,10 @@ ln -s $DIR/vimrc $HOME/.config/nvim/init.vim
 # for gvim/macvim
 ln -s $DIR/vimrc $HOME/.vimrc
 
+# for coc.nvim
+mkdir -p $HOME/.vim
+ln -s $DIR/coc-settings.json $HOME/.vim/coc-settings.json
+
 ln -s $DIR/uncrustify.cfg ~/.uncrustify.cfg
 
 # tmux
@@ -42,9 +46,10 @@ ln -s /usr/bin/python3 ~/.bin/python
 # vscode
 ln -sf $DIR/settings.json ~/.config/Code/User/settings.json
 
+
 echo
 echo "Consider installing node.js by typing:"
-echo "curl -sL install-node.now.sh/lts | bash"
+echo "curl -sL install-node.now.sh/lts | PREFIX=~/.local bash"
 
 
 echo
