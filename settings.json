@@ -18,9 +18,10 @@
     "window.zoomLevel": 0,
     "python.linting.pylintEnabled": true,
     "python.linting.pylintUseMinimalCheckers": true,
-    "python.linting.pep8Enabled": true,
+    "python.linting.pycodestyleEnabled": true,
     "terminal.integrated.fontSize": 13,
     "window.menuBarVisibility": "visible",
     "window.titleBarStyle": "custom",
-    "vsicons.dontShowNewVersionMessage": true
+    "vsicons.dontShowNewVersionMessage": true,
+    "terminal.integrated.scrollback": 5000
 }
