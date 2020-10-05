@@ -46,6 +46,10 @@ ln -s /usr/bin/python3 ~/.bin/python
 # vscode
 ln -sf $DIR/settings.json ~/.config/Code/User/settings.json
 
+# create useful dirs
+mkdir -p ~/.local
+mkdir -p ~/.bin
+mkdir -p ~/Dev
 
 echo
 echo "Consider installing node.js by typing:"
