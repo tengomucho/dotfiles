@@ -37,9 +37,6 @@ echo 'prefix = ${NPM_PACKAGES}' >> ~/.npmrc
 mkdir -p ~/.bin
 mkdir -p ~/.local/bin
 
-# ripgrep shortcut
-ln -s $DIR/bin/rg ~/.bin
-
 # python3 by default
 ln -s /usr/bin/python3 ~/.bin/python
 
