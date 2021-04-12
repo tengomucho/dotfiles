@@ -94,3 +94,5 @@ export PATH=$PATH:~/go/bin
 # Add custom personal path
 export PATH=~/.bin:$PATH
 
+# Avoid duplicates in history
+export HISTCONTROL=ignoredups
