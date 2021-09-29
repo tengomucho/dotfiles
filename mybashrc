@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# remove annoying message macos
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 export XDG_CONFIG_HOME="$HOME/.config"
 
 
