@@ -2,29 +2,29 @@
 
 # directory where this script is located, thanks to
 # http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DIR=`dirname "$BASH_SOURCE"`
 
-ln -s $DIR/gdbinit $HOME/.gdbinit
-ln -s $DIR/mybashrc $HOME/.mybashrc
+ln -sf $DIR/gdbinit $HOME/.gdbinit
+ln -sf $DIR/mybashrc $HOME/.mybashrc
 
 # for neovim
 mkdir -p $HOME/.config/nvim
-ln -s $DIR/vimrc $HOME/.config/nvim/init.vim
+ln -sf $DIR/vimrc $HOME/.config/nvim/init.vim
 
 # for gvim/macvim
-ln -s $DIR/vimrc $HOME/.vimrc
+ln -sf $DIR/vimrc $HOME/.vimrc
 
 # for coc.nvim
 mkdir -p $HOME/.vim
-ln -s $DIR/coc-settings.json $HOME/.vim/coc-settings.json
+ln -sf $DIR/coc-settings.json $HOME/.vim/coc-settings.json
 
-ln -s $DIR/uncrustify.cfg ~/.uncrustify.cfg
+ln -sf $DIR/uncrustify.cfg ~/.uncrustify.cfg
 
 # tmux
-ln -s $DIR/tmux.conf ~/.tmux.conf
+ln -sf $DIR/tmux.conf ~/.tmux.conf
 
 # global gitignore
-ln -s $DIR/gitignore ~/.gitignore
+ln -sf $DIR/gitignore ~/.gitignore
 git config --global core.excludesfile '~/.gitignore'
 
 # for YouCompleteMe (Vim plugin)
@@ -38,10 +38,10 @@ mkdir -p ~/.bin
 mkdir -p ~/.local/bin
 
 # python3 by default
-ln -s /usr/bin/python3 ~/.bin/python
+ln -sf /usr/bin/python3 ~/.bin/python
 
 # vscode
-ln -sf $DIR/settings.json ~/.config/Code/User/settings.json
+ln -sff $DIR/settings.json ~/.config/Code/User/settings.json
 
 # create useful dirs
 mkdir -p ~/.local
