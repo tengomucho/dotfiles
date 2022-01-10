@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# directory where this script is located, thanks to
-# http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in
+# directory where this script is located
 DIR=`dirname "$BASH_SOURCE"`
+DIR=`realpath $DIR`
 
 ln -sf $DIR/gdbinit $HOME/.gdbinit
 ln -sf $DIR/mybashrc $HOME/.mybashrc
