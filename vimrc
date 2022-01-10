@@ -317,4 +317,6 @@ let g:airline_theme="bubblegum"
 "Highlight as you type
 set incsearch
 
-
+" For macOS: allow alt+right to work (see
+" https://superuser.com/questions/635482/why-does-optionleft-arrow-work-in-vim-but-not-right-arrow-on-mac-os-x)
+:map f w
