@@ -165,7 +165,6 @@ Plug 'jszakmeister/vim-togglecursor'
 Plug 'digitaltoad/vim-pug'
 Plug 'wavded/vim-stylus'
 Plug 'pboettch/vim-cmake-syntax'
-Plug 'Valloric/MatchTagAlways'
 Plug 'kergoth/vim-bitbake'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -305,10 +304,12 @@ autocmd BufNewFile,BufRead *.styl set syntax=stylus
 " Sometimes the mouse is not enabled in terminal...
 :set mouse=a
 " Fully powered mouse support
-if has("mouse_sgr")
-	set ttymouse=sgr
-else
-	set ttymouse=xterm2
+if !has("macunix")
+  if has("mouse_sgr")
+	  set ttymouse=sgr
+  else
+	  set ttymouse=xterm2
+  endif
 endif
 
 "Vim airline theme
