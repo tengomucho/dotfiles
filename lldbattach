@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Launch a command in background and attach to pid
+ARGS=$@
+$ARGS &
+lldb --attach-pid $!
+
+kill -9 $!

@@ -41,11 +41,13 @@ mkdir -p ~/.local/bin
 ln -sf /usr/bin/python3 ~/.bin/python
 
 # vscode
+mkdir -p ~/.config/Code/User/
 ln -sff $DIR/settings.json ~/.config/Code/User/settings.json
 
+# lldbattach helper
+ln -sf  $DIR/lldbattach ~/.bin
+
 # create useful dirs
-mkdir -p ~/.local
-mkdir -p ~/.bin
 mkdir -p ~/Dev
 
 echo
