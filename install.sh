@@ -57,6 +57,6 @@ echo "curl -sL install-node.now.sh/lts | PREFIX=~/.local bash"
 
 echo
 echo "Install done"
-echo "if needed add . .mybashrc at the end of your .bashrc."
+echo "if needed add . .mybashrc at the end of your .bashrc or .zshrc."
 
 

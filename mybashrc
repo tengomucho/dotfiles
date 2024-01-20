@@ -45,23 +45,13 @@ export EDITOR="/usr/bin/vim"
 # get repo completion
 #. ~/Dev/repo.bash_completion/repo.bash_completion
 
-# color prompt green and bold cyan
-PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[00;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ '
-
-mergepdf()
-{
-  dir=${1%/}
-  gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=$dir.pdf  -dPDFSETTINGS=/ebook -dBATCH $dir/*.pdf
-}
-
-function findpdf()
-{
-find . -iname '*.pdf' | while read filename
-do
-  echo -e "\033[34;1m// === PDF Document:\033[33;1m $filename\033[0m"
-  pdftotext -enc ASCII7 "$filename" - | grep --color=always -rni $1
-done
-}
+if [ -z ${ZSH_NAME+x} ]; then
+  # color prompt green and bold cyan for bash
+  PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[00;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ ';
+else
+  # zsh prompt
+  PROMPT='%F{green}%n@%m%f %F{blue}%~%f $ '
+fi
 
 function gittree()
 {
@@ -75,17 +65,9 @@ function findgrep()
 
 alias glog="git log --oneline"
 
-
-function qvim_launch()
-{
- params=$*
- nvim-qt $params > /dev/null 2>&1
-}
-alias qvim="qvim_launch $@"
-
 export KWIN_TRIPLE_BUFFER=1
 
-#cleanup for docker containers
+# cleanup for docker containers
 alias docker-cleanup="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm"
 
 # Add snaps
@@ -99,3 +81,7 @@ export PATH=~/.bin:$PATH
 
 # Avoid duplicates in history
 export HISTCONTROL=ignoredups
+
+# Common aliases
+alias l=ls
+alias ll=ls -l
