@@ -84,4 +84,4 @@ export HISTCONTROL=ignoredups
 
 # Common aliases
 alias l=ls
-alias ll=ls -l
+alias ll="ls -l"
