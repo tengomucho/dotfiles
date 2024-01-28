@@ -85,3 +85,9 @@ export HISTCONTROL=ignoredups
 # Common aliases
 alias l=ls
 alias ll="ls -l"
+
+# Aliases for macOS
+if [[ `uname` == 'Darwin' ]] then
+alias python=python3
+alias pip=pip3
+fi
