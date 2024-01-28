@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 # directory where this script is located
 DIR=`dirname "$BASH_SOURCE"`
 DIR=`realpath $DIR`
