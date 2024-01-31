@@ -86,9 +86,12 @@ export HISTCONTROL=ignoredups
 alias l=ls
 alias ll="ls -l"
 
-# Aliases for macOS
 if [[ `uname` == 'Darwin' ]]
 then
+# Aliases for macOS
 alias python=python3
 alias pip=pip3
+# Assuming this is zsh, add this to allow vscode terminal to work correctly, as
+# explained https://github.com/microsoft/vscode-docs/issues/5221#issuecomment-1061081538
+bindkey -e
 fi
