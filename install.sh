@@ -49,6 +49,9 @@ ln -sff $DIR/settings.json ~/.config/Code/User/settings.json
 # lldbattach helper
 ln -sf  $DIR/lldbattach ~/.bin
 
+# ipdb installed
+ln -sf  $DIR/install_ipdb.sh ~/.bin
+
 # create useful dirs
 mkdir -p ~/Dev
 
