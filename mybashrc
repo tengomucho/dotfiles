@@ -96,4 +96,9 @@ alias pip=pip3
 bindkey -e
 # This is for the delete key to work in zsh in vscode terminal
 bindkey "^[[3~" delete-char
+# Prompt in macOS will have different colours. Rationale: this is likely a laptop, so
+# it makes sense to distinguish it compared to remote machines.
+# for colours, check https://wiki.archlinux.org/title/zsh
+PROMPT='%B%F{037}%n@%m%f %b%F{072}%~%f $ '
+
 fi
