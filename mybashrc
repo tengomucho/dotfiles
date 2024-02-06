@@ -94,4 +94,6 @@ alias pip=pip3
 # Assuming this is zsh, add this to allow vscode terminal to work correctly, as
 # explained https://github.com/microsoft/vscode-docs/issues/5221#issuecomment-1061081538
 bindkey -e
+# This is for the delete key to work in zsh in vscode terminal
+bindkey "^[[3~" delete-char
 fi
