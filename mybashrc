@@ -83,8 +83,11 @@ export PATH=~/.bin:$PATH
 export HISTCONTROL=ignoredups
 
 # Common aliases
+alias ls='ls --color=auto'
 alias l=ls
 alias ll="ls -l"
+alias la="ls -a"
+
 
 if [[ `uname` == 'Darwin' ]]
 then
@@ -100,5 +103,7 @@ bindkey "^[[3~" delete-char
 # it makes sense to distinguish it compared to remote machines.
 # for colours, check https://wiki.archlinux.org/title/zsh
 PROMPT='%B%F{037}%n@%m%f %b%F{072}%~%f $ '
+
+setopt histignorealldups
 
 fi
