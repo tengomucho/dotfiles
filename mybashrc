@@ -5,14 +5,11 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
-
 # Add .local/bin path
 export PATH=$PATH:~/.local/bin
 
 # Add cargo/rust binaries
 export PATH=$PATH:~/.cargo/bin
-# Check https://github.com/rust-lang-nursery/rls
-export RUST_SRC_PATH="/home/amoran/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
 
 # NPM packages in homedir
 export NPM_PACKAGES="$HOME/.npm-packages"
@@ -53,22 +50,7 @@ else
   PROMPT='%F{green}%n@%m%f %F{blue}%~%f $ '
 fi
 
-function gittree()
-{
-	git log --graph --all --pretty=format:'%Cred%h%Creset - %Cgreen(%cr)%Creset %s%C(yellow)%d%Creset' --abbrev-commit --date=relative
-}
-
-function findgrep()
-{
- find . -name $2 -exec grep -nHr "$1" {} \; ;
-}
-
 alias glog="git log --oneline"
-
-export KWIN_TRIPLE_BUFFER=1
-
-# cleanup for docker containers
-alias docker-cleanup="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm"
 
 # Add snaps
 export PATH=$PATH:/snap/bin
