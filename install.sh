@@ -20,8 +20,6 @@ ln -sf $DIR/vimrc $HOME/.vimrc
 mkdir -p $HOME/.vim
 ln -sf $DIR/coc-settings.json $HOME/.vim/coc-settings.json
 
-ln -sf $DIR/uncrustify.cfg ~/.uncrustify.cfg
-
 # tmux
 ln -sf $DIR/tmux.conf ~/.tmux.conf
 
