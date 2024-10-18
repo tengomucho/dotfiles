@@ -16,10 +16,6 @@ ln -sf $DIR/vimrc $HOME/.config/nvim/init.vim
 # for gvim/macvim
 ln -sf $DIR/vimrc $HOME/.vimrc
 
-# for coc.nvim
-mkdir -p $HOME/.vim
-ln -sf $DIR/coc-settings.json $HOME/.vim/coc-settings.json
-
 # tmux
 ln -sf $DIR/tmux.conf ~/.tmux.conf
 

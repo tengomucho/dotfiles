@@ -172,12 +172,6 @@ Plug 'nanotech/jellybeans.vim'
 " Rust stuff
 Plug 'rust-lang/rust.vim'
 
-" intellisense for vim
-" It requires node, to install it do:
-" curl -sL install-node.now.sh/lts | bash
-" I left it commented out because I do not code often with vim these days
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 
 filetype plugin indent on                   " required!
 call plug#end()
