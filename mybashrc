@@ -89,3 +89,6 @@ PROMPT='%B%F{037}%n@%m%f %b%F{072}%~%f $ '
 setopt histignorealldups
 
 fi
+
+# Accelerate HF transfer
+export HF_HUB_ENABLE_HF_TRANSFER=1
