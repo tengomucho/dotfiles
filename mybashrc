@@ -91,4 +91,4 @@ setopt histignorealldups
 fi
 
 # Accelerate HF transfer
-export HF_HUB_ENABLE_HF_TRANSFER=1
+export HF_XET_HIGH_PERFORMANCE=1
