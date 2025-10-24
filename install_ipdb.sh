@@ -19,4 +19,9 @@ else
 fi;
 
 echo 'export PYTHONBREAKPOINT="ipdb.set_trace"' >> $venv_bindir/activate
+
+echo
+echo 'If you want you can now do:'
+echo 'export PYTHONBREAKPOINT="ipdb.set_trace"'
+echo
 echo "ipdb installed!"
