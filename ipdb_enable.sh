@@ -9,4 +9,7 @@ fi
 
 # Enable ipdb
 export PYTHONBREAKPOINT="ipdb.set_trace"
+
+echo 'export PYTHONBREAKPOINT="ipdb.set_trace"'
+echo
 echo "ipdb enabled"
