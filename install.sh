@@ -31,9 +31,6 @@ git config --global alias.ci 'commit'
 git config --global alias.st 'status'
 git config --global alias.df 'diff'
 
-# for YouCompleteMe (Vim plugin)
-curl https://raw.githubusercontent.com/Valloric/ycmd/master/cpp/ycm/.ycm_extra_conf.py > ~/.ycm_extra_conf.py
-
 # for npm
 echo 'prefix = ${NPM_PACKAGES}' >> ~/.npmrc
 
