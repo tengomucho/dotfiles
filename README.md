@@ -8,4 +8,9 @@ To install this you can just do:
 git clone https://github.com/tengomucho/dotfiles.git && cd dotfiles && ./install.sh && echo "source ~/.mybashrc" >> ~/.bashrc
 ```
 
+# Extra tools that can be installed
 
+- [atuin](https://atuin.sh/) for better terminal history
+- [gh cli](https://cli.github.com/), [installation](https://github.com/cli/cli#installation)
+- node js, [installation](https://nodejs.org/en/download)
+- [claude code](https://claude.com/product/claude-code)
