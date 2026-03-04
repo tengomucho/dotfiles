@@ -14,3 +14,4 @@ git clone https://github.com/tengomucho/dotfiles.git && cd dotfiles && ./install
 - [gh cli](https://cli.github.com/), [installation](https://github.com/cli/cli#installation)
 - node js, [installation](https://nodejs.org/en/download)
 - [claude code](https://claude.com/product/claude-code)
+- [uv](https://docs.astral.sh/uv/getting-started/installation/)
