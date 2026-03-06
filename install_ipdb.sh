@@ -7,10 +7,14 @@ then
     exit 0
 fi;
 
-python_bin=`which python3`
-venv_bindir=`dirname $python_bin`
+if [ -n "$VIRTUAL_ENV" ]; then
+    echo 'export PYTHONBREAKPOINT="ipdb.set_trace"' >> $VIRTUAL_ENV/bin/activate
+else
+    echo "No venv activated"
+    exit 1
+fi
 
-grep 'uv = ' $venv_bindir/../pyvenv.cfg > /dev/null
+grep 'uv = ' $VIRTUAL_ENV/pyvenv.cfg > /dev/null
 if [[ $? == 0 ]]
 then
     uv pip install ipdb
@@ -18,7 +22,6 @@ else
     pip install ipdb
 fi;
 
-echo 'export PYTHONBREAKPOINT="ipdb.set_trace"' >> $venv_bindir/activate
 
 echo
 echo 'If you want you can now do:'
