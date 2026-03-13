@@ -82,5 +82,8 @@ setopt histignorealldups
 
 fi
 
+# Ripgrep config
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
 # Accelerate HF transfer
 export HF_XET_HIGH_PERFORMANCE=1

@@ -52,6 +52,9 @@ ln -sf  $DIR/lldbattach ~/.bin
 ln -sf  $DIR/install_ipdb.sh ~/.bin
 ln -sf  $DIR/ipdb_enable.sh ~/.bin
 
+# ripgrep config
+ln -sf $DIR/dot_ripgreprc ~/.ripgreprc
+
 # create useful dirs
 mkdir -p ~/Dev
 
