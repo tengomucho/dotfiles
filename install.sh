@@ -55,6 +55,9 @@ ln -sf  $DIR/ipdb_enable.sh ~/.bin
 # ripgrep config
 ln -sf $DIR/dot_ripgreprc ~/.ripgreprc
 
+# copilot
+ln -sf $DIR/dot_copilot ~/.copilot
+
 # create useful dirs
 mkdir -p ~/Dev
 

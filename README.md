@@ -15,3 +15,7 @@ git clone https://github.com/tengomucho/dotfiles.git && cd dotfiles && ./install
 - node js, [installation](https://nodejs.org/en/download)
 - [claude code](https://claude.com/product/claude-code)
 - [uv](https://docs.astral.sh/uv/getting-started/installation/)
+
+Consider also installing:
+
+- [Context mode](https://github.com/mksglu/context-mode)
