@@ -11,10 +11,6 @@ export PATH=$PATH:~/.local/bin
 # Add cargo/rust binaries
 export PATH=$PATH:~/.cargo/bin
 
-# Unset manpath so we can inherit from /etc/manpath via the `manpath` command
-unset MANPATH  # delete if you already modified MANPATH elsewhere in your conf
-export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
-
 # this is to avoid problems with ctrl-s ctrl-q
 stty -ixon
 
@@ -24,9 +20,9 @@ export OLD_TERM=$TERM
 export TERM=xterm-256color
 
 
-export LANGUAGE=en_US.utf-8
-export LANG=en_US.utf-8
-export LC_ALL=en_US.utf-8
+#export LANGUAGE=en_US.utf-8
+#export LANG=en_US.utf-8
+#export LC_ALL=en_US.utf-8
 #export LC_MESSAGES=POSIX
 
 export EDITOR="/usr/bin/vim"
