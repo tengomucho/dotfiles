@@ -52,6 +52,16 @@ export PATH=~/.bin:$PATH
 # Avoid duplicates in history
 export HISTCONTROL=ignoredups
 
+# NPM packages in homedir
+export NPM_PACKAGES="$HOME/.npm-packages"
+# Tell our environment about user-installed node tools
+export PATH="$NPM_PACKAGES/bin:$PATH"
+
+# Unset manpath so we can inherit from /etc/manpath via the `manpath` command if manpath is available
+if [ -x "$(command -v manpath)" ]; then
+    export MANPATH="$(manpath):$NPM_PACKAGES/share/man"
+fi
+
 # Common aliases
 alias ls='ls --color=auto'
 alias l=ls
