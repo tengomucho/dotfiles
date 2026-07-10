@@ -40,10 +40,6 @@ mkdir -p ~/.local/bin
 # python3 by default
 ln -sf /usr/bin/python3 ~/.bin/python
 
-# vscode
-mkdir -p ~/.config/Code/User/
-ln -sff $DIR/legacy/settings.json ~/.config/Code/User/settings.json
-
 # lldbattach helper
 ln -sf  $DIR/legacy/lldbattach ~/.bin
 
