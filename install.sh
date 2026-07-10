@@ -6,21 +6,21 @@ set -e
 DIR=`dirname "$BASH_SOURCE"`
 DIR=`realpath $DIR`
 
-ln -sf $DIR/gdbinit $HOME/.gdbinit
-ln -sf $DIR/mybashrc $HOME/.mybashrc
+ln -sf $DIR/legacy/gdbinit $HOME/.gdbinit
+ln -sf $DIR/legacy/mybashrc $HOME/.mybashrc
 
 # for neovim
 mkdir -p $HOME/.config/nvim
-ln -sf $DIR/vimrc $HOME/.config/nvim/init.vim
+ln -sf $DIR/legacy/vimrc $HOME/.config/nvim/init.vim
 
 # for gvim/macvim
-ln -sf $DIR/vimrc $HOME/.vimrc
+ln -sf $DIR/legacy/vimrc $HOME/.vimrc
 
 # tmux
-ln -sf $DIR/tmux.conf ~/.tmux.conf
+ln -sf $DIR/legacy/tmux.conf ~/.tmux.conf
 
 # global gitignore
-ln -sf $DIR/gitignore ~/.gitignore
+ln -sf $DIR/legacy/gitignore ~/.gitignore
 git config --global core.excludesfile '~/.gitignore'
 
 # Add aliases for git
@@ -43,20 +43,20 @@ ln -sf /usr/bin/python3 ~/.bin/python
 
 # vscode
 mkdir -p ~/.config/Code/User/
-ln -sff $DIR/settings.json ~/.config/Code/User/settings.json
+ln -sff $DIR/legacy/settings.json ~/.config/Code/User/settings.json
 
 # lldbattach helper
-ln -sf  $DIR/lldbattach ~/.bin
+ln -sf  $DIR/legacy/lldbattach ~/.bin
 
 # ipdb installer and enabler
-ln -sf  $DIR/install_ipdb.sh ~/.bin
-ln -sf  $DIR/ipdb_enable.sh ~/.bin
+ln -sf  $DIR/legacy/install_ipdb.sh ~/.bin
+ln -sf  $DIR/legacy/ipdb_enable.sh ~/.bin
 
 # ripgrep config
-ln -sf $DIR/dot_ripgreprc ~/.ripgreprc
+ln -sf $DIR/legacy/dot_ripgreprc ~/.ripgreprc
 
 # copilot
-ln -sf $DIR/dot_copilot ~/.copilot
+ln -sf $DIR/legacy/dot_copilot ~/.copilot
 
 # create useful dirs
 mkdir -p ~/Dev
