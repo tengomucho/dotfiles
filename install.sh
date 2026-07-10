@@ -28,12 +28,7 @@ git config --global alias.df 'diff'
 echo 'prefix = ${NPM_PACKAGES}' >> ~/.npmrc
 
 # custom path
-mkdir -p ~/.bin
 mkdir -p ~/.local/bin
-
-# python3 by default
-ln -sf /usr/bin/python3 ~/.bin/python
-
 
 # create useful dirs
 mkdir -p ~/Dev
