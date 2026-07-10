@@ -20,7 +20,6 @@ mkdir -p $HOME/.config/nvim
 ln -sf $HOME/.vimrc $HOME/.config/nvim/init.vim
 
 # global gitignore
-ln -sf $DIR/legacy/gitignore ~/.gitignore
 git config --global core.excludesfile '~/.gitignore'
 
 # Add aliases for git
