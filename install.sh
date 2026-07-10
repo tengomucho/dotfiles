@@ -6,6 +6,13 @@ set -e
 DIR=`dirname "$BASH_SOURCE"`
 DIR=`realpath $DIR`
 
+# chezmoi-managed files (see home/, .chezmoiroot)
+if command -v chezmoi >/dev/null 2>&1; then
+  chezmoi apply --source "$DIR"
+else
+  echo "chezmoi not installed, skipping chezmoi-managed files"
+fi
+
 ln -sf $DIR/legacy/gdbinit $HOME/.gdbinit
 ln -sf $DIR/legacy/mybashrc $HOME/.mybashrc
 
