@@ -47,9 +47,6 @@ ln -sf  $DIR/legacy/lldbattach ~/.bin
 ln -sf  $DIR/legacy/install_ipdb.sh ~/.bin
 ln -sf  $DIR/legacy/ipdb_enable.sh ~/.bin
 
-# copilot
-ln -sf $DIR/legacy/dot_copilot ~/.copilot
-
 # create useful dirs
 mkdir -p ~/Dev
 
