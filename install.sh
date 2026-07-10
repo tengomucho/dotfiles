@@ -13,9 +13,6 @@ else
   echo "chezmoi not installed, skipping chezmoi-managed files"
 fi
 
-# for npm
-echo 'prefix = ${NPM_PACKAGES}' >> ~/.npmrc
-
 # custom path
 mkdir -p ~/.local/bin
 
