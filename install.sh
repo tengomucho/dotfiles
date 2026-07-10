@@ -13,7 +13,6 @@ else
   echo "chezmoi not installed, skipping chezmoi-managed files"
 fi
 
-ln -sf $DIR/legacy/gdbinit $HOME/.gdbinit
 ln -sf $DIR/legacy/mybashrc $HOME/.mybashrc
 
 # for neovim (points at the chezmoi-managed ~/.vimrc, not the repo directly)
