@@ -40,9 +40,6 @@ mkdir -p ~/.local/bin
 # python3 by default
 ln -sf /usr/bin/python3 ~/.bin/python
 
-# lldbattach helper
-ln -sf  $DIR/legacy/lldbattach ~/.bin
-
 # ipdb installer and enabler
 ln -sf  $DIR/legacy/install_ipdb.sh ~/.bin
 ln -sf  $DIR/legacy/ipdb_enable.sh ~/.bin
