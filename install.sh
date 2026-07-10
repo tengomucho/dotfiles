@@ -13,10 +13,6 @@ else
   echo "chezmoi not installed, skipping chezmoi-managed files"
 fi
 
-# for neovim (points at the chezmoi-managed ~/.vimrc, not the repo directly)
-mkdir -p $HOME/.config/nvim
-ln -sf $HOME/.vimrc $HOME/.config/nvim/init.vim
-
 # global gitignore
 git config --global core.excludesfile '~/.gitignore'
 
