@@ -40,9 +40,6 @@ mkdir -p ~/.local/bin
 # python3 by default
 ln -sf /usr/bin/python3 ~/.bin/python
 
-# ipdb installer and enabler
-ln -sf  $DIR/legacy/install_ipdb.sh ~/.bin
-ln -sf  $DIR/legacy/ipdb_enable.sh ~/.bin
 
 # create useful dirs
 mkdir -p ~/Dev
