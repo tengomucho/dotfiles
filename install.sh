@@ -13,8 +13,3 @@ else
   echo "chezmoi not installed, skipping chezmoi-managed files"
 fi
 
-echo
-echo "Install done"
-echo "if needed add . .mybashrc at the end of your .bashrc or .zshrc."
-
-
