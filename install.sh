@@ -23,9 +23,6 @@ ln -sf $DIR/legacy/vimrc $HOME/.config/nvim/init.vim
 # for gvim/macvim
 ln -sf $DIR/legacy/vimrc $HOME/.vimrc
 
-# tmux
-ln -sf $DIR/legacy/tmux.conf ~/.tmux.conf
-
 # global gitignore
 ln -sf $DIR/legacy/gitignore ~/.gitignore
 git config --global core.excludesfile '~/.gitignore'
