@@ -51,9 +51,6 @@ ln -sf  $DIR/legacy/lldbattach ~/.bin
 ln -sf  $DIR/legacy/install_ipdb.sh ~/.bin
 ln -sf  $DIR/legacy/ipdb_enable.sh ~/.bin
 
-# ripgrep config
-ln -sf $DIR/legacy/dot_ripgreprc ~/.ripgreprc
-
 # copilot
 ln -sf $DIR/legacy/dot_copilot ~/.copilot
 
