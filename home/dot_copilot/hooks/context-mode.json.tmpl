@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      { "type": "command", "command": "{{ lookPath `context-mode` | default (printf `%s/.npm-global/bin/context-mode` .chezmoi.homeDir) }} hook vscode-copilot pretooluse" }
+    ],
+    "PostToolUse": [
+      { "type": "command", "command": "{{ lookPath `context-mode` | default (printf `%s/.npm-global/bin/context-mode` .chezmoi.homeDir) }} hook vscode-copilot posttooluse" }
+    ],
+    "PreCompact": [
+      { "type": "command", "command": "{{ lookPath `context-mode` | default (printf `%s/.npm-global/bin/context-mode` .chezmoi.homeDir) }} hook vscode-copilot precompact" }
+    ],
+    "SessionStart": [
+      { "type": "command", "command": "{{ lookPath `context-mode` | default (printf `%s/.npm-global/bin/context-mode` .chezmoi.homeDir) }} hook vscode-copilot sessionstart" }
+    ]
+  }
+}
