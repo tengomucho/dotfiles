@@ -13,8 +13,6 @@ else
   echo "chezmoi not installed, skipping chezmoi-managed files"
 fi
 
-ln -sf $DIR/legacy/mybashrc $HOME/.mybashrc
-
 # for neovim (points at the chezmoi-managed ~/.vimrc, not the repo directly)
 mkdir -p $HOME/.config/nvim
 ln -sf $HOME/.vimrc $HOME/.config/nvim/init.vim
