@@ -16,12 +16,9 @@ fi
 ln -sf $DIR/legacy/gdbinit $HOME/.gdbinit
 ln -sf $DIR/legacy/mybashrc $HOME/.mybashrc
 
-# for neovim
+# for neovim (points at the chezmoi-managed ~/.vimrc, not the repo directly)
 mkdir -p $HOME/.config/nvim
-ln -sf $DIR/legacy/vimrc $HOME/.config/nvim/init.vim
-
-# for gvim/macvim
-ln -sf $DIR/legacy/vimrc $HOME/.vimrc
+ln -sf $HOME/.vimrc $HOME/.config/nvim/init.vim
 
 # global gitignore
 ln -sf $DIR/legacy/gitignore ~/.gitignore
