@@ -5,7 +5,7 @@ Collection of configuration and settings files used in my linux and macos setup.
 To install this you can just do:
 
 ```sh
-git clone https://github.com/tengomucho/dotfiles.git && cd dotfiles && ./install.sh && echo "source ~/.mybashrc" >> ~/.bashrc
+curl -fsSL https://raw.githubusercontent.com/tengomucho/dotfiles/main/install.sh | bash
 ```
 
 # Extra tools that can be installed
