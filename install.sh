@@ -2,10 +2,6 @@
 
 set -e
 
-# directory where this script is located
-DIR=`dirname "$BASH_SOURCE"`
-DIR=`realpath $DIR`
-
 # install chezmoi if missing
 if ! command -v chezmoi >/dev/null 2>&1; then
   echo "chezmoi not found, installing..."
@@ -18,9 +14,9 @@ if ! command -v chezmoi >/dev/null 2>&1; then
   fi
 fi
 
-# chezmoi-managed files (see home/, .chezmoiroot)
+# initialize chezmoi's source dir from this repo and apply the managed dotfiles
 if command -v chezmoi >/dev/null 2>&1; then
-  chezmoi apply --source "$DIR"
+  chezmoi init --apply tengomucho
 else
   echo "chezmoi installation failed, skipping chezmoi-managed files"
 fi
