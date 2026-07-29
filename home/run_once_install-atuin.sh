@@ -16,6 +16,7 @@ for rc in "$HOME/.bashrc" "$HOME/.zshrc"; do
         *.zshrc) shell=zsh ;;
     esac
     if [ -f "$rc" ]; then
-        sed "s|^eval \"\$(atuin init $shell)\"\$|eval \"\$(atuin init $shell --disable-up-arrow)\"|" "$rc" > "$rc.tmp" && mv "$rc.tmp" "$rc"
+        echo "👋 After atuin's installation, you might want to run this command"
+        echo sed "s|^eval \"\$(atuin init $shell)\"\$|eval \"\$(atuin init $shell --disable-up-arrow)\"|" "$rc" > "$rc.tmp" && mv "$rc.tmp" "$rc"
     fi
 done
