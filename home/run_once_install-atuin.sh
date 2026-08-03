@@ -9,14 +9,27 @@ fi
 
 curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh -s -- --non-interactive
 
+
+# If $SHELL is bash, set rc to .bashrc, else if $SHELL is zsh, set rc to .zshrc, otherwise do nothing
+case "$SHELL" in
+    */bash)
+        shell=bash
+        rc="$HOME/.bashrc"
+        ;;
+    */zsh)
+        shell=zsh
+        rc="$HOME/.zshrc"
+        ;;
+    *)
+        rc=""
+        ;;
+esac
+
 # Disable atuin's up-arrow history search in favor of the default shell behavior
-# for rc in "$HOME/.bashrc" "$HOME/.zshrc"; do
-#     case "$rc" in
-#         *.bashrc) shell=bash ;;
-#         *.zshrc) shell=zsh ;;
-#     esac
-#     if [ -f "$rc" ]; then
-#         echo "👋 After atuin's installation, you might want to run this command"
-#         echo sed "s|^eval \"\$(atuin init $shell)\"\$|eval \"\$(atuin init $shell --disable-up-arrow)\"|" "$rc" > "$rc.tmp" && mv "$rc.tmp" "$rc"
-#     fi
-# done
+if [ -f "$rc" ]; then
+    if grep -q "atuin init" "$rc"; then
+        sed "s|^eval \"\$(atuin init $shell)\"\$|eval \"\$(atuin init $shell --disable-up-arrow)\"|" "$rc" > "$rc.tmp" && mv "$rc.tmp" "$rc"
+    else
+        echo "eval \"\$(atuin init $shell --disable-up-arrow)\"" >> "$rc"
+    fi
+fi
