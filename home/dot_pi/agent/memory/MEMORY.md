@@ -69,6 +69,7 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 - Stop before committing, asking for review, unless asked to do otherwise.
 - When writing a commit, use conventional commit style, max 80 chars per column.
 - When preparing a plan, define steps so that you know when to commit.
+- Never add a commit session link in the commit message.
 
 ## 6. Python
 
