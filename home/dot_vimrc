@@ -167,7 +167,6 @@ Plug 'pboettch/vim-cmake-syntax'
 Plug 'kergoth/vim-bitbake'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'nanotech/jellybeans.vim'
 
 " Rust stuff
 Plug 'rust-lang/rust.vim'
@@ -176,11 +175,8 @@ Plug 'rust-lang/rust.vim'
 filetype plugin indent on                   " required!
 call plug#end()
 
-
 "colorscheme desert
 let g:rehash256 = 1
-colorscheme jellybeans
-
 
 
 syntax on
